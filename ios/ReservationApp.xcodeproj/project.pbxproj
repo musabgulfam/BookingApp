@@ -14,6 +14,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-ReservationApp-ReservationAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ReservationApp-ReservationAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		676E294BA44449C3B1430449 /* Tajawal-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 658F955B90B94765AF7BBD99 /* Tajawal-Black.otf */; };
+		941BA783672E4170BEAED663 /* Tajawal-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 17DD4CC34D0F4ECD9430989F /* Tajawal-Bold.otf */; };
+		C49A79457F2A47DD90DE1C99 /* Tajawal-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F5372495EB04295A0C5FC5D /* Tajawal-ExtraBold.otf */; };
+		257F6032489E4F01A8A63FF9 /* Tajawal-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2AC1960B6C4B46919BC165DF /* Tajawal-ExtraLight.otf */; };
+		3C6909985DEC48CCB59766F0 /* Tajawal-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04546695945F4302B49BF8A0 /* Tajawal-Light.otf */; };
+		08F67B77B451425EA487AD41 /* Tajawal-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5651A589FA149D193712530 /* Tajawal-Medium.otf */; };
+		E7FBB498FC40450DA8206AA8 /* Tajawal-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1D1A0E1616F413B8920489F /* Tajawal-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReservationApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-ReservationApp-ReservationAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReservationApp-ReservationAppTests.release.xcconfig"; path = "Target Support Files/Pods-ReservationApp-ReservationAppTests/Pods-ReservationApp-ReservationAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		658F955B90B94765AF7BBD99 /* Tajawal-Black.otf */ = {isa = PBXFileReference; name = "Tajawal-Black.otf"; path = "../assets/fonts/Tajawal-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		17DD4CC34D0F4ECD9430989F /* Tajawal-Bold.otf */ = {isa = PBXFileReference; name = "Tajawal-Bold.otf"; path = "../assets/fonts/Tajawal-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1F5372495EB04295A0C5FC5D /* Tajawal-ExtraBold.otf */ = {isa = PBXFileReference; name = "Tajawal-ExtraBold.otf"; path = "../assets/fonts/Tajawal-ExtraBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2AC1960B6C4B46919BC165DF /* Tajawal-ExtraLight.otf */ = {isa = PBXFileReference; name = "Tajawal-ExtraLight.otf"; path = "../assets/fonts/Tajawal-ExtraLight.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		04546695945F4302B49BF8A0 /* Tajawal-Light.otf */ = {isa = PBXFileReference; name = "Tajawal-Light.otf"; path = "../assets/fonts/Tajawal-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D5651A589FA149D193712530 /* Tajawal-Medium.otf */ = {isa = PBXFileReference; name = "Tajawal-Medium.otf"; path = "../assets/fonts/Tajawal-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F1D1A0E1616F413B8920489F /* Tajawal-Regular.otf */ = {isa = PBXFileReference; name = "Tajawal-Regular.otf"; path = "../assets/fonts/Tajawal-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +136,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				CD8AEB19F35A48FF9CAD79C0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +162,21 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		CD8AEB19F35A48FF9CAD79C0 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				658F955B90B94765AF7BBD99 /* Tajawal-Black.otf */,
+				17DD4CC34D0F4ECD9430989F /* Tajawal-Bold.otf */,
+				1F5372495EB04295A0C5FC5D /* Tajawal-ExtraBold.otf */,
+				2AC1960B6C4B46919BC165DF /* Tajawal-ExtraLight.otf */,
+				04546695945F4302B49BF8A0 /* Tajawal-Light.otf */,
+				D5651A589FA149D193712530 /* Tajawal-Medium.otf */,
+				F1D1A0E1616F413B8920489F /* Tajawal-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +274,13 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				676E294BA44449C3B1430449 /* Tajawal-Black.otf in Resources */,
+				941BA783672E4170BEAED663 /* Tajawal-Bold.otf in Resources */,
+				C49A79457F2A47DD90DE1C99 /* Tajawal-ExtraBold.otf in Resources */,
+				257F6032489E4F01A8A63FF9 /* Tajawal-ExtraLight.otf in Resources */,
+				3C6909985DEC48CCB59766F0 /* Tajawal-Light.otf in Resources */,
+				08F67B77B451425EA487AD41 /* Tajawal-Medium.otf in Resources */,
+				E7FBB498FC40450DA8206AA8 /* Tajawal-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +599,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -633,7 +670,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
