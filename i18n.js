@@ -13,13 +13,14 @@ const resources = {
   ar: {
     translation: {
       "Welcome to React": "مصعب",
-      "Welcome": "هل تواجه مشكلة في تسجيل الدخول؟",
+      "Welcome": "أهلا بك",
+      "Welcome back": "مرحبًا بعودتك",
       "Enter your information below": "أدخل معلوماتك أدناه:",
       "Full name": "الاسم الكامل",
       "Email": "عنوان بريد الكتروني",
       "Password": "كلمه السر",
       "Confirm Password": "تأكيد كلمة المرور",
-      "login": "تسجيل الدخول",
+      "Login": "تسجيل الدخول",
       "Signup": "اشتراك",
       
     }
