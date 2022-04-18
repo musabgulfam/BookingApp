@@ -22,7 +22,8 @@ const resources = {
       "Confirm Password": "تأكيد كلمة المرور",
       "Login": "تسجيل الدخول",
       "Signup": "اشتراك",
-      
+      "Find the best hotels": "اعثر على أفضل الفنادق والمنازل والمنتجعات والمزيد ...",
+      "Where are you going?": "إلى أين تذهب؟"
     }
   }
 };

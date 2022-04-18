@@ -14,6 +14,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import '../../../i18n'
 import { FONTS } from "../../constants";
+import { useStoreActions } from "easy-peasy";
 
 const {
     width,
@@ -33,6 +34,10 @@ export function Authentication(props) {
     const [password, setPassword] = useState('');
 
     const [confirmPassword, setConfirmPassword] = useState('');
+
+    const signup = useStoreActions(actions => actions.signup);
+
+    const login = useStoreActions(actions => actions.login);
 
     return (
         <SafeAreaView style={{
@@ -276,7 +281,7 @@ export function Authentication(props) {
                                         style={{
                                             resizeMode: 'contain',
                                             width: 175,
-                                            height: 204
+                                            height: 140
                                         }}
                                     />
                                 </View>
@@ -289,7 +294,31 @@ export function Authentication(props) {
 
             <TouchableOpacity 
                 onPress={_ => {
-                    console.log('Icon clicked...');
+                    if(selectedTab === "Signup"){
+                        signup({
+                            email,
+                            password
+                        })
+                            .then(user => {
+                                console.log('user: ', user);
+                            })
+                            .catch(e => {
+                                console.error(e);
+                            })
+                    }
+                    else{
+                        login({
+                            email,
+                            password
+                        })
+                            .then(user => {
+                                console.log('Signed in user: ', user);
+                                props.navigation.navigate('MainFlow');
+                            })
+                            .catch(e => {
+                                console.error(e);
+                            })
+                    }
                 }}
                 style={{
                     position: 'absolute',
