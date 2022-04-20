@@ -22,7 +22,8 @@ const resources = {
       "Confirm Password": "تأكيد كلمة المرور",
       "Login": "تسجيل الدخول",
       "Signup": "اشتراك",
-      
+      "Find the best hotels": "اعثر على أفضل الفنادق والمنازل والمنتجعات والمزيد ...",
+      "Where are you going?": "إلى أين تذهب؟"
     }
   }
 };
@@ -30,6 +31,7 @@ const resources = {
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
+    compatibilityJSON: 'v3',
     resources,
     lng: "ar", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
     // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage

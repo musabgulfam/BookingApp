@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "736200304894",
+    "project_id": "reservation-b500f",
+    "storage_bucket": "reservation-b500f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736200304894:android:b3ab94dfc8f9b6f9045daf",
+        "android_client_info": {
+          "package_name": "com.reservationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736200304894-kfp8m6jff9tg0ib4thg80buji8kbehqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-CxsaRL-rKqbL2utD0cssT-g05CUgHIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736200304894-kfp8m6jff9tg0ib4thg80buji8kbehqo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "736200304894-l2mab5srgc44fsvl8a261pr447vnrn4n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ReservationApp.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

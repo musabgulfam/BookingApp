@@ -8,11 +8,18 @@ import {
     SafeAreaView,
     TouchableOpacity,
     TextInput,
-    Image
+    Image,
+    Dimensions
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import '../../../i18n'
 import { FONTS } from "../../constants";
+import { useStoreActions } from "easy-peasy";
+
+const {
+    width,
+    height
+} = Dimensions.get('window');
 
 export function Authentication(props) {
 
@@ -28,9 +35,14 @@ export function Authentication(props) {
 
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const signup = useStoreActions(actions => actions.signup);
+
+    const login = useStoreActions(actions => actions.login);
+
     return (
         <SafeAreaView style={{
-            flex: 1,
+            height,
+            backgroundColor: '#E5E5E5'
         }}>
 
             {/* Header tab */}
@@ -45,7 +57,7 @@ export function Authentication(props) {
                     style={{
                         marginRight: 20,
                         borderBottomColor: selectedTab === "Login" ? '#36BFFA' : null,
-                        borderBottomWidth: selectedTab === "Login" ? 3 : null
+                        borderBottomWidth: selectedTab === "Login" ? 3 : null,
                     }}
                     onPress={_ => {
                         setSelectedTab("Login")
@@ -54,7 +66,8 @@ export function Authentication(props) {
                     <Text style={{
                         fontFamily: selectedTab === "Login" ? FONTS.Bold : FONTS.Medium,
                         fontSize: 20,
-                        color: selectedTab === "Login" ? '#36BFFA' : 'black'
+                        color: selectedTab === "Login" ? '#36BFFA' : 'black',
+                        textAlign:'right'
                     }}>{t("Login")}</Text>
                 </TouchableOpacity>
 
@@ -70,23 +83,28 @@ export function Authentication(props) {
                     <Text style={{
                         fontFamily: selectedTab === "Signup" ? FONTS.Bold : FONTS.Medium,
                         fontSize: 20,
-                        color: selectedTab === "Signup" ? '#36BFFA' : 'black'
+                        color: selectedTab === "Signup" ? '#36BFFA' : 'black',
+                        textAlign: 'right'
                     }}>{t("Signup")}</Text>
                 </TouchableOpacity>
             </View>
 
             <View style={{
                 flex: 8.8,
-                paddingTop: selectedTab !== "Signup" ? 45 : 50
+                paddingTop: selectedTab !== "Signup" ? 45 : 10,
+                backgroundColor: '#E5E5E5'
             }}>
 
                 {
                     selectedTab === "Signup" ? (
-                        <>
+                        <View style={{
+                            flex: 1
+                        }}>
                             <Text style={{
                                 textAlign: 'center',
                                 fontFamily: FONTS.Medium,
                                 fontSize: 70,
+                                color: 'black'
                             }}>{t("Welcome")}</Text>
 
                             <Text style={{
@@ -98,12 +116,14 @@ export function Authentication(props) {
 
                             <View style={{
                                 flex: 1,
-                                justifyContent: 'space-between'
+                                justifyContent: 'space-between',
                             }}>
                                 <View style={{
+                                    justifyContent: 'space-evenly',
+                                    flex: 1.6
                                 }}>
                                     <View style={{
-                                        marginTop: 30,
+                                        // marginTop: 10,
                                         paddingHorizontal: 20
                                     }}>
                                         <TextInput
@@ -113,16 +133,17 @@ export function Authentication(props) {
                                             style={{
                                                 fontFamily: FONTS.Medium,
                                                 fontSize: 20,
-                                                color: '#BDBDBD',
+                                                color: '#0000004D',
                                                 textAlign: 'right',
                                                 borderBottomWidth: 2,
                                                 borderBottomColor: '#0000004D',
                                             }}
+                                            placeholderTextColor={"#0000004D"}
                                         />
                                     </View>
 
                                     <View style={{
-                                        marginTop: 45,
+                                        // marginTop: 30,
                                         paddingHorizontal: 20
                                     }}>
                                         <TextInput
@@ -137,12 +158,13 @@ export function Authentication(props) {
                                                 borderBottomWidth: 2,
                                                 borderBottomColor: '#0000004D',
                                             }}
+                                            placeholderTextColor={"#0000004D"}
                                         />
                                     </View>
 
                                     <View style={{
-                                        marginTop: 45,
-                                        paddingHorizontal: 20
+                                        // marginTop: 30,
+                                        paddingHorizontal: 20,
                                     }}>
                                         <TextInput
                                             value={password}
@@ -156,11 +178,12 @@ export function Authentication(props) {
                                                 borderBottomWidth: 2,
                                                 borderBottomColor: '#0000004D',
                                             }}
+                                            placeholderTextColor={"#0000004D"}
                                         />
                                     </View>
 
                                     <View style={{
-                                        marginTop: 45,
+                                        // marginTop: 30,
                                         paddingHorizontal: 20
                                     }}>
                                         <TextInput
@@ -175,28 +198,31 @@ export function Authentication(props) {
                                                 borderBottomWidth: 2,
                                                 borderBottomColor: '#0000004D',
                                             }}
+                                            placeholderTextColor={"#0000004D"}
                                         />
                                     </View>
                                 </View>
                                 <View style={{
+                                    flex: 0.8
                                 }}>
                                     <Image
                                         source={require('../../../assets/pictures/signup.png')}
                                         style={{
                                             resizeMode: 'contain',
                                             width: 375,
-                                            height: 163
+                                            height: 140
                                         }}
                                     />
                                 </View>
                             </View>
-                        </>
+                        </View>
                     ) : (
                         <>
                             <Text style={{
                                 textAlign: 'center',
                                 fontFamily: FONTS.Medium,
                                 fontSize: 70,
+                                color: 'black'
                             }}>{t("Welcome back")}</Text>
 
                             <View style={{
@@ -222,6 +248,7 @@ export function Authentication(props) {
                                                 borderBottomWidth: 2,
                                                 borderBottomColor: '#0000004D',
                                             }}
+                                            placeholderTextColor={"#0000004D"}
                                         />
                                     </View>
 
@@ -241,6 +268,7 @@ export function Authentication(props) {
                                                 borderBottomWidth: 2,
                                                 borderBottomColor: '#0000004D',
                                             }}
+                                            placeholderTextColor={"#0000004D"}
                                         />
                                     </View>
                                 </View>
@@ -253,7 +281,7 @@ export function Authentication(props) {
                                         style={{
                                             resizeMode: 'contain',
                                             width: 175,
-                                            height: 204
+                                            height: 140
                                         }}
                                     />
                                 </View>
@@ -266,11 +294,35 @@ export function Authentication(props) {
 
             <TouchableOpacity 
                 onPress={_ => {
-                    console.log('Icon clicked...');
+                    if(selectedTab === "Signup"){
+                        signup({
+                            email,
+                            password
+                        })
+                            .then(user => {
+                                console.log('user: ', user);
+                            })
+                            .catch(e => {
+                                console.error(e);
+                            })
+                    }
+                    else{
+                        login({
+                            email,
+                            password
+                        })
+                            .then(user => {
+                                console.log('Signed in user: ', user);
+                                props.navigation.navigate('MainFlow');
+                            })
+                            .catch(e => {
+                                console.error(e);
+                            })
+                    }
                 }}
                 style={{
                     position: 'absolute',
-                    bottom: 55,
+                    bottom: 35,
                     right: 20,
                     width: 59,
                     height: 59,
@@ -291,10 +343,8 @@ export function Authentication(props) {
 
             <View style={{
                 backgroundColor: '#CCCCCC',
-                flex: 0.7
-            }}>
-
-            </View>
+                height: 65
+            }} />
 
         </SafeAreaView>
     );
