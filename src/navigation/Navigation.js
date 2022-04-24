@@ -7,7 +7,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
     Authentication,
     Home,
-    Loading
+    Loading,
+    Info,
+    Select
 } from "../screens";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import auth from '@react-native-firebase/auth';
@@ -34,6 +36,23 @@ export function Navigation(props) {
         const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
         return subscriber; // unsubscribe on unmount
     }, []);
+
+    const InfoStackNav = createNativeStackNavigator();
+
+    const InfoStack = _ => {
+        return (
+            <InfoStackNav.Navigator
+                screenOptions={{
+                    headerShown: false
+                }}
+                initialRouteName="Main"
+            >
+                <InfoStackNav.Screen name="Main" component={MainFlow} />
+                <InfoStackNav.Screen name="Info" component={Info} />
+                <InfoStackNav.Screen name="Select" component={Select} />
+            </InfoStackNav.Navigator>
+        );
+    }
 
     const Tab = createBottomTabNavigator();
 
@@ -66,7 +85,6 @@ export function Navigation(props) {
                         tabBarShowLabel: false
                     }}
                 />
-                {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
             </Tab.Navigator>
         );
     }
@@ -84,7 +102,7 @@ export function Navigation(props) {
                 >
                     <Stack.Screen name="Loading" component={Loading} />
                 </Stack.Navigator>
-            ) : user ? <MainFlow /> : (
+            ) : user ? <InfoStack /> : (
                 <Stack.Navigator
                     screenOptions={{
                         headerShown: false

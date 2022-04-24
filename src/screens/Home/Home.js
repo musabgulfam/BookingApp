@@ -3,7 +3,8 @@ import {
     View,
     Text,
     ScrollView,
-    Dimensions
+    Dimensions,
+    SafeAreaView
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { FONTS } from "../../constants";
@@ -23,9 +24,9 @@ export function Home(props){
             // justifyContent: 'center',
             // alignItems: 'center'
         }}>
-            <View style={{
+            <SafeAreaView style={{
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent: 'center'
             }}>
                 <Text style={{
                     color: 'black',
@@ -34,13 +35,13 @@ export function Home(props){
                     marginBottom: 30,
                     marginTop: 10,
                 }}>{t("Welcome")}</Text>
-            </View>
+            </SafeAreaView>
             <View style={{
                 paddingHorizontal: 16,
             }}>
                 <Text style={{
                     color: 'black',
-                    // textAlign: 'center',
+                    textAlign: 'center',
                     fontFamily: FONTS.Medium,
                     fontSize: 23,
                     lineHeight: 30,
@@ -55,15 +56,55 @@ export function Home(props){
                 <SearchBar />
             </View>
 
-            <ScrollView style={{
-                paddingTop: 10,
-                paddingHorizontal: 5,
-            }}>
-                <Card />
+            <ScrollView 
+                style={{
+                    paddingTop: 10,
+                }}
+                showsVerticalScrollIndicator={false}
+            >
+                <View style={{
+                    paddingHorizontal: 20
+                }}>
+                    <Text style={{
+                        textAlign: 'left',
+                        fontFamily: FONTS.Bold,
+                        fontSize: 22,
+                        color: "#36BFFA",
+                        marginTop: 20
+                    }}>{t("Hotels near you")}</Text>
+                </View>
 
-                <Card />
+                <View style={{
+                    paddingHorizontal: 5
+                }}>
+                    <Card navigation={props.navigation} />
 
-                <Card />
+                    <Card navigation={props.navigation} />
+
+                    <Card navigation={props.navigation} />
+                </View>
+
+                <View style={{
+                    paddingHorizontal: 20
+                }}>
+                    <Text style={{
+                        textAlign: 'left',
+                        fontFamily: FONTS.Bold,
+                        fontSize: 22,
+                        color: "#36BFFA",
+                        marginTop: 30
+                    }}>{t("Resorts near you")}</Text>
+                </View>
+
+                <View style={{
+                    paddingHorizontal: 5
+                }}>
+                    <Card navigation={props.navigation} />
+
+                    <Card navigation={props.navigation} />
+
+                    <Card navigation={props.navigation} />
+                </View>
             </ScrollView>
 
         </View>

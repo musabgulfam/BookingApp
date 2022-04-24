@@ -40,6 +40,13 @@ const store = createStore({
         return res;
     })
 
-}, composeEnhancers());
+}, {
+    compose: composeWithDevTools({ 
+        realtime: true, 
+        trace: true,
+        hostname: 'localhost',
+        port: 8081 
+    })
+});
 
 export default store;

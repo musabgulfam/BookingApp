@@ -40,7 +40,8 @@ export function SearchBar(props){
                     fontFamily: FONTS.Regular,
                     width: '90%',
                     height: 48,
-                    color: 'black'
+                    color: 'black',
+                    textAlign: 'right'
                 }}
             />
             <View>

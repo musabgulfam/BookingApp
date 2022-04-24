@@ -7,24 +7,31 @@ import {
 } from 'react-native'
 import { FONTS } from "../../constants";
 
-export function Card(props){
+export function Card({
+    navigation
+}){
 
     return(
-        <TouchableOpacity style={{
-            height: 244,
-            borderRadius: 14,
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 6,
-            },
-            shadowOpacity: 0.39,
-            shadowRadius: 8.30,
+        <TouchableOpacity 
+            style={{
+                height: 244,
+                borderRadius: 14,
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 6,
+                },
+                shadowOpacity: 0.39,
+                shadowRadius: 8.30,
 
-            elevation: 13,
-            marginVertical: 15,
-            marginHorizontal: 10
-        }}>
+                elevation: 13,
+                marginVertical: 5,
+                marginHorizontal: 10
+            }}
+            onPress={_ => {
+                navigation.navigate('Info');
+            }}
+        >
             <View style={{
                 flex: 0.7,
                 // borderWidth: 3,
