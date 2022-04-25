@@ -35,7 +35,8 @@ const resources = {
       "Select": "حدد غرفة...",
       "Checkin date": "تاريخ الوصول",
       "Checkout date": "موعد انتهاء الأقامة",
-      "Passengers": "مسافرين"
+      "Passengers": "مسافرين",
+      "Reserve": "الاحتياطي"
     }
   }
 };

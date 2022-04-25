@@ -8,11 +8,13 @@ import {
     SafeAreaView,
     Image,
     TextInput,
-    Modal
+    Modal,
+    FlatList
 } from 'react-native'
 import { FONTS } from "../../constants";
 import { useTranslation } from 'react-i18next'
 import { Calendar } from "react-native-calendars";
+import { Card } from './Card'
 
 export function Select(props) {
 
@@ -52,7 +54,7 @@ export function Select(props) {
                             fontSize: 20,
                             textAlign: 'left'
                         }}>{t("Checkin date")}</Text>
-                        <Calendar 
+                        <Calendar
                             onDayPress={val => {
                                 setCheckIn(val.dateString)
                                 setCalendarVisible('')
@@ -89,7 +91,7 @@ export function Select(props) {
                             fontSize: 20,
                             textAlign: 'left'
                         }}>{t("Checkout date")}</Text>
-                        <Calendar 
+                        <Calendar
                             onDayPress={val => {
                                 setCheckOut(val.dateString)
                                 setCalendarVisible('')
@@ -138,7 +140,7 @@ export function Select(props) {
                                 width: 100
                             }}>
                                 <TouchableOpacity>
-                                    <Image 
+                                    <Image
                                         source={require('../../../assets/icon/select/plus.png')}
                                         style={{
                                             width: 28,
@@ -147,7 +149,7 @@ export function Select(props) {
                                         }}
                                     />
                                 </TouchableOpacity>
-                                
+
                                 <View style={{
                                     borderWidth: 1,
                                     height: 20,
@@ -155,7 +157,7 @@ export function Select(props) {
                                 }} />
 
                                 <TouchableOpacity>
-                                    <Image 
+                                    <Image
                                         source={require('../../../assets/icon/select/minus.png')}
                                         style={{
                                             width: 28,
@@ -199,7 +201,7 @@ export function Select(props) {
                                 width: 100
                             }}>
                                 <TouchableOpacity>
-                                    <Image 
+                                    <Image
                                         source={require('../../../assets/icon/select/plus.png')}
                                         style={{
                                             width: 28,
@@ -208,7 +210,7 @@ export function Select(props) {
                                         }}
                                     />
                                 </TouchableOpacity>
-                                
+
                                 <View style={{
                                     borderWidth: 1,
                                     height: 20,
@@ -216,7 +218,7 @@ export function Select(props) {
                                 }} />
 
                                 <TouchableOpacity>
-                                    <Image 
+                                    <Image
                                         source={require('../../../assets/icon/select/minus.png')}
                                         style={{
                                             width: 28,
@@ -252,6 +254,21 @@ export function Select(props) {
             </Modal>
         );
     }
+
+    const dummy_data = [
+        {
+            name: 'abc'
+        },
+        {
+            name: 'cde'
+        },
+        {
+            name: 'efg'
+        },
+        {
+            name: 'ghi'
+        }
+    ];
 
     return (
         <SafeAreaView style={{
@@ -441,7 +458,7 @@ export function Select(props) {
                         }}
                     />
 
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         style={{
                             alignContent: 'flex-end'
                         }}
@@ -462,56 +479,74 @@ export function Select(props) {
                 </View>
 
                 <View style={{
-                    width: '100%',
-                    borderRadius: 8,
-                    borderWidth: 2,
-                    borderColor: '#CACACA',
-                    height: 45,
-                    marginVertical: 10,
                     flexDirection: 'row',
                     alignItems: 'center',
-                    paddingHorizontal: 20
+                    justifyContent: 'space-between'
                 }}>
                     <View style={{
-
+                        width: '85%',
+                        borderRadius: 8,
+                        borderWidth: 2,
+                        borderColor: '#CACACA',
+                        height: 45,
+                        marginVertical: 10,
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        paddingHorizontal: 20
                     }}>
-                        <Image
-                            source={require('../../../assets/icon/select/passenger.png')}
+                        <View style={{
+
+                        }}>
+                            <Image
+                                source={require('../../../assets/icon/select/passenger.png')}
+                                style={{
+                                    resizeMode: 'contain',
+                                    height: 30,
+                                    width: 30
+                                }}
+                            />
+                        </View>
+
+                        <TextInput
+                            value={passengers}
+                            onChangeText={text => passengers(text)}
+                            placeholder={t("Passengers")}
+                            placeholderTextColor={"#A9A9A9"}
                             style={{
-                                resizeMode: 'contain',
-                                height: 30,
-                                width: 30
+                                fontFamily: FONTS.Medium,
+                                fontSize: 20,
+                                marginLeft: 10,
+                                width: '80%',
+                                textAlign: 'right',
                             }}
                         />
+
+                        <TouchableOpacity
+                            style={{
+                                alignContent: 'flex-end'
+                            }}
+                            onPress={_ => {
+                                setCalendarVisible('passenger');
+                            }}
+                        >
+                            <Image
+                                source={require('../../../assets/icon/select/drop_down.png')}
+                                style={{
+                                    width: 20,
+                                    height: 20,
+                                    resizeMode: 'contain'
+                                }}
+                            />
+                        </TouchableOpacity>
+
                     </View>
 
-                    <TextInput
-                        value={passengers}
-                        onChangeText={text => passengers(text)}
-                        placeholder={t("Passengers")}
-                        placeholderTextColor={"#A9A9A9"}
-                        style={{
-                            fontFamily: FONTS.Medium,
-                            fontSize: 20,
-                            marginLeft: 10,
-                            width: '80%',
-                            textAlign: 'right',
-                        }}
-                    />
-
-                    <TouchableOpacity 
-                        style={{
-                            alignContent: 'flex-end'
-                        }}
-                        onPress={_ => {
-                            setCalendarVisible('passenger');
-                        }}
-                    >
-                        <Image
-                            source={require('../../../assets/icon/select/drop_down.png')}
+                    <TouchableOpacity>
+                        <Image 
+                            source={require('../../../assets/icon/select/register.png')}
                             style={{
-                                width: 20,
-                                height: 20,
+                                width: 45,
+                                height: 45,
                                 resizeMode: 'contain'
                             }}
                         />
@@ -519,6 +554,16 @@ export function Select(props) {
 
                 </View>
 
+            </View>
+
+            <View style={{
+                paddingHorizontal: 5
+            }}>
+                <FlatList
+                    data={dummy_data}
+                    renderItem={({ item }) => <Card />}
+                    showsVerticalScrollIndicator={false}
+                />
             </View>
 
         </SafeAreaView>
