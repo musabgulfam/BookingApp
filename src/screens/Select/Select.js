@@ -7,10 +7,12 @@ import {
     TouchableOpacity,
     SafeAreaView,
     Image,
-    TextInput
+    TextInput,
+    Modal
 } from 'react-native'
 import { FONTS } from "../../constants";
 import { useTranslation } from 'react-i18next'
+import { Calendar } from "react-native-calendars";
 
 export function Select(props) {
 
@@ -18,16 +20,253 @@ export function Select(props) {
 
     const [checkOut, setCheckOut] = useState('');
 
-    const [passengers, setPassengers] = useState(0);
+    const [passengers, setPassengers] = useState('');
 
     const { t } = useTranslation();
 
+    const [calendarModalVisible, setCalendarVisible] = useState('');
+
+    const [adults, setAdults] = useState(0);
+
+    const [infants, setInfants] = useState(0);
+
+    const CheckInModal = _ => {
+        return (
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={calendarModalVisible === 'checkin'}
+            >
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <View style={{
+                        borderRadius: 12,
+                        backgroundColor: 'white',
+                        padding: 18
+                    }}>
+                        <Text style={{
+                            fontFamily: FONTS.Medium,
+                            fontSize: 20,
+                            textAlign: 'left'
+                        }}>{t("Checkin date")}</Text>
+                        <Calendar 
+                            onDayPress={val => {
+                                setCheckIn(val.dateString)
+                                setCalendarVisible('')
+                            }}
+                            theme={{
+                                textColor: '#FF2D55'
+                            }}
+                        />
+                    </View>
+                </View>
+            </Modal>
+        );
+    }
+
+    const CheckOutModal = _ => {
+        return (
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={calendarModalVisible === 'checkout'}
+            >
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <View style={{
+                        borderRadius: 12,
+                        backgroundColor: 'white',
+                        padding: 18
+                    }}>
+                        <Text style={{
+                            fontFamily: FONTS.Medium,
+                            fontSize: 20,
+                            textAlign: 'left'
+                        }}>{t("Checkout date")}</Text>
+                        <Calendar 
+                            onDayPress={val => {
+                                setCheckOut(val.dateString)
+                                setCalendarVisible('')
+                            }}
+                        />
+                    </View>
+                </View>
+            </Modal>
+        );
+    }
+
+    const PassengerModal = _ => {
+        return (
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={calendarModalVisible === 'passenger'}
+            >
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <View style={{
+                        borderRadius: 12,
+                        backgroundColor: 'white',
+                        padding: 18
+                    }}>
+                        <Text style={{
+                            fontFamily: FONTS.Medium,
+                            fontSize: 20,
+                            color: '#A9A9A9',
+                            // textAlign: 'left'
+                        }}>Room 1</Text>
+
+                        <View style={{
+                            flexDirection: 'row',
+                            paddingHorizontal: 15,
+                            alignItems: 'center',
+                            marginTop: 20
+                        }}>
+                            <View style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'space-evenly',
+                                width: 100
+                            }}>
+                                <TouchableOpacity>
+                                    <Image 
+                                        source={require('../../../assets/icon/select/plus.png')}
+                                        style={{
+                                            width: 28,
+                                            height: 28,
+                                            resizeMode: 'contain'
+                                        }}
+                                    />
+                                </TouchableOpacity>
+                                
+                                <View style={{
+                                    borderWidth: 1,
+                                    height: 20,
+                                    borderColor: '#D1D1D6'
+                                }} />
+
+                                <TouchableOpacity>
+                                    <Image 
+                                        source={require('../../../assets/icon/select/minus.png')}
+                                        style={{
+                                            width: 28,
+                                            height: 28,
+                                            resizeMode: 'contain'
+                                        }}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={{
+                                marginLeft: 30
+                            }}>
+                                <Text style={{
+                                    color: '#FF2D55',
+                                    fontSize: 20
+                                }}>{adults}</Text>
+                            </View>
+
+
+                            <View style={{
+                                marginLeft: 30
+                            }}>
+                                <Text style={{
+                                    textAlign: 'left',
+                                    fontSize: 16
+                                }}>Adults</Text>
+                            </View>
+                        </View>
+
+                        <View style={{
+                            flexDirection: 'row',
+                            paddingHorizontal: 15,
+                            alignItems: 'center',
+                            marginTop: 20
+                        }}>
+                            <View style={{
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'space-evenly',
+                                width: 100
+                            }}>
+                                <TouchableOpacity>
+                                    <Image 
+                                        source={require('../../../assets/icon/select/plus.png')}
+                                        style={{
+                                            width: 28,
+                                            height: 28,
+                                            resizeMode: 'contain'
+                                        }}
+                                    />
+                                </TouchableOpacity>
+                                
+                                <View style={{
+                                    borderWidth: 1,
+                                    height: 20,
+                                    borderColor: '#D1D1D6'
+                                }} />
+
+                                <TouchableOpacity>
+                                    <Image 
+                                        source={require('../../../assets/icon/select/minus.png')}
+                                        style={{
+                                            width: 28,
+                                            height: 28,
+                                            resizeMode: 'contain'
+                                        }}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={{
+                                marginLeft: 30
+                            }}>
+                                <Text style={{
+                                    color: '#FF2D55',
+                                    fontSize: 20
+                                }}>{adults}</Text>
+                            </View>
+
+
+                            <View style={{
+                                marginLeft: 30,
+                            }}>
+                                <Text style={{
+                                    textAlign: 'left',
+                                    fontSize: 16
+                                }}>Children</Text>
+                            </View>
+                        </View>
+
+                    </View>
+                </View>
+            </Modal>
+        );
+    }
+
     return (
         <SafeAreaView style={{
-            flex: 1
+            flex: 1,
+            backgroundColor: '#E5E5E5',
+
         }}>
 
             {/* Header */}
+
+            <CheckInModal />
+
+            <CheckOutModal />
+
+            <PassengerModal />
 
             <View style={{
                 flexDirection: 'row',
@@ -144,9 +383,14 @@ export function Select(props) {
                         }}
                     />
 
-                    <TouchableOpacity style={{
-                        alignContent: 'flex-end'
-                    }}>
+                    <TouchableOpacity
+                        style={{
+                            alignContent: 'flex-end'
+                        }}
+                        onPress={_ => {
+                            setCalendarVisible('checkin');
+                        }}
+                    >
                         <Image
                             source={require('../../../assets/icon/select/drop_down.png')}
                             style={{
@@ -174,7 +418,7 @@ export function Select(props) {
 
                     }}>
                         <Image
-                            source={require('../../../assets/icon/select/check_in.png')}
+                            source={require('../../../assets/icon/select/check_out.png')}
                             style={{
                                 resizeMode: 'contain',
                                 height: 30,
@@ -184,8 +428,8 @@ export function Select(props) {
                     </View>
 
                     <TextInput
-                        value={checkIn}
-                        onChangeText={text => setCheckIn(text)}
+                        value={checkOut}
+                        onChangeText={text => setCheckOut(text)}
                         placeholder={t("Checkout date")}
                         placeholderTextColor={"#A9A9A9"}
                         style={{
@@ -197,9 +441,14 @@ export function Select(props) {
                         }}
                     />
 
-                    <TouchableOpacity style={{
-                        alignContent: 'flex-end'
-                    }}>
+                    <TouchableOpacity 
+                        style={{
+                            alignContent: 'flex-end'
+                        }}
+                        onPress={_ => {
+                            setCalendarVisible('checkout');
+                        }}
+                    >
                         <Image
                             source={require('../../../assets/icon/select/drop_down.png')}
                             style={{
@@ -227,7 +476,7 @@ export function Select(props) {
 
                     }}>
                         <Image
-                            source={require('../../../assets/icon/select/check_in.png')}
+                            source={require('../../../assets/icon/select/passenger.png')}
                             style={{
                                 resizeMode: 'contain',
                                 height: 30,
@@ -237,8 +486,8 @@ export function Select(props) {
                     </View>
 
                     <TextInput
-                        value={checkIn}
-                        onChangeText={text => setCheckIn(text)}
+                        value={passengers}
+                        onChangeText={text => passengers(text)}
                         placeholder={t("Passengers")}
                         placeholderTextColor={"#A9A9A9"}
                         style={{
@@ -250,9 +499,14 @@ export function Select(props) {
                         }}
                     />
 
-                    <TouchableOpacity style={{
-                        alignContent: 'flex-end'
-                    }}>
+                    <TouchableOpacity 
+                        style={{
+                            alignContent: 'flex-end'
+                        }}
+                        onPress={_ => {
+                            setCalendarVisible('passenger');
+                        }}
+                    >
                         <Image
                             source={require('../../../assets/icon/select/drop_down.png')}
                             style={{
