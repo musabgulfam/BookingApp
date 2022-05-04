@@ -1,14 +1,8 @@
 import { action, actionOn, createStore, thunk } from 'easy-peasy';
 import auth from '@react-native-firebase/auth'
-import { composeWithDevTools } from 'remote-redux-devtools'
-import devToolsEnhancer from 'remote-redux-devtools';
+import Api from '../services/Api';
 
-const composeEnhancers = composeWithDevTools({
-    realtime: true,
-    name: 'ReversationApp',
-    hostname: 'localhost',
-    port: 8081 // the port your remotedev server is running at
-});
+const api = Api.createApiClient();
 
 const store = createStore({
 
@@ -19,10 +13,20 @@ const store = createStore({
     // },
 
     user: null,
+    hotels: [],
+    resorts: [],
 
     setUser: action((state, payload) => {
         console.log('Imp payload: ', payload);
         state.user = payload;
+    }),
+
+    setHotelAction: action((state, payload) => {
+        state.hotels = payload;
+    }),
+
+    setResortAction: action((state, payload) => {
+        state.resorts = payload;
     }),
 
     signup: thunk(async (actions, payload) => {
@@ -38,15 +42,25 @@ const store = createStore({
         const res = await auth().signInWithEmailAndPassword(payload.email, payload.password);
         actions.setUser(res);
         return res;
+    }),
+
+    createUser: thunk(async (actions, payload) => {
+        console.log('Adding user to database...');
+        const res = await api.addUser(payload);
+    }),
+
+    setHotels: thunk(async (actions, payload) => {
+        console.log('Setting hotels...');
+        const res = await api.getHotels();
+        actions.setHotelAction(res.data);
+    }),
+
+    setResorts: thunk(async (actions, payload) => {
+        console.log('Setting resorts...');
+        const res = await api.getResorts();
+        actions.setResortAction(res.data);
     })
 
-}, {
-    compose: composeWithDevTools({ 
-        realtime: true, 
-        trace: true,
-        hostname: 'localhost',
-        port: 8081 
-    })
 });
 
 export default store;

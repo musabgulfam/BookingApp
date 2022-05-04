@@ -12,12 +12,12 @@ import {
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { FONTS } from "../../constants";
+import { SearchBar, Card } from "../../components";
 import { useStoreActions, useStoreState } from "easy-peasy";
-import { Card, SearchBar } from "../../components";
 
 const { height } = Dimensions.get('window');
 
-export function Home(props){
+export function Events(props){
 
     const { t } = useTranslation();
 

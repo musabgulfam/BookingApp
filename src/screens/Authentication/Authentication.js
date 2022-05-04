@@ -39,6 +39,8 @@ export function Authentication(props) {
 
     const login = useStoreActions(actions => actions.login);
 
+    const createUser = useStoreActions(actions => actions.createUser)
+
     return (
         <SafeAreaView style={{
             height,
@@ -301,10 +303,15 @@ export function Authentication(props) {
                         })
                             .then(user => {
                                 console.log('user: ', user);
+                                createUser({
+                                    name,
+                                    email,
+                                    id: user.uid
+                                })
                             })
                             .catch(e => {
                                 console.error(e);
-                            })
+                            });
                     }
                     else{
                         login({
@@ -313,7 +320,7 @@ export function Authentication(props) {
                         })
                             .then(user => {
                                 console.log('Signed in user: ', user);
-                                props.navigation.navigate('MainFlow');
+                                props.navigation.navigate('Main');
                             })
                             .catch(e => {
                                 console.error(e);

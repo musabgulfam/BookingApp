@@ -5,10 +5,12 @@ import {
     TouchableOpacity,
     Image
 } from 'react-native'
-import { FONTS } from "../../constants";
+import { FONTS } from "../constants";
 
 export function Card({
-    navigation
+    navigation,
+    name,
+    image
 }){
 
     return(
@@ -63,7 +65,7 @@ export function Card({
                         fontSize: 18,
                         color: 'black',
                         marginBottom: 10
-                    }}>Hotel Modern View</Text>
+                    }}>{name}</Text>
                 </View>
                 <View style={{
                     flexDirection: 'row',

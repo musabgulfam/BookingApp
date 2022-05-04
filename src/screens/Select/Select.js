@@ -9,7 +9,8 @@ import {
     Image,
     TextInput,
     Modal,
-    FlatList
+    FlatList,
+    ScrollView
 } from 'react-native'
 import { FONTS } from "../../constants";
 import { useTranslation } from 'react-i18next'
@@ -52,7 +53,8 @@ export function Select(props) {
                         <Text style={{
                             fontFamily: FONTS.Medium,
                             fontSize: 20,
-                            textAlign: 'left'
+                            textAlign: 'left',
+                            color: 'black'
                         }}>{t("Checkin date")}</Text>
                         <Calendar
                             onDayPress={val => {
@@ -89,7 +91,8 @@ export function Select(props) {
                         <Text style={{
                             fontFamily: FONTS.Medium,
                             fontSize: 20,
-                            textAlign: 'left'
+                            textAlign: 'left',
+                            color: 'black'
                         }}>{t("Checkout date")}</Text>
                         <Calendar
                             onDayPress={val => {
@@ -271,7 +274,7 @@ export function Select(props) {
     ];
 
     return (
-        <SafeAreaView style={{
+        <ScrollView style={{
             flex: 1,
             backgroundColor: '#E5E5E5',
 
@@ -285,7 +288,7 @@ export function Select(props) {
 
             <PassengerModal />
 
-            <View style={{
+            <SafeAreaView style={{
                 flexDirection: 'row',
                 // alignItems: 'center',
                 justifyContent: 'space-between',
@@ -342,7 +345,7 @@ export function Select(props) {
                         </View>
                     </View>
                 </View>
-            </View>
+            </SafeAreaView>
 
             {/* Main */}
 
@@ -566,6 +569,6 @@ export function Select(props) {
                 />
             </View>
 
-        </SafeAreaView>
+        </ScrollView>
     );
 }

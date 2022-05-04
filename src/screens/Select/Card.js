@@ -13,8 +13,8 @@ export function Card(props){
     const { t } = useTranslation();
     
     return (
-        <View style={{
-            height: 460,
+        <TouchableOpacity style={{
+            height: 470,
             borderRadius: 14,
             backgroundColor: 'white',
             marginBottom: 35,
@@ -37,7 +37,9 @@ export function Card(props){
                     style={{
                         resizeMode: 'cover',
                         height: 144,
-                        width: '100%'
+                        width: '100%',
+                        borderTopLeftRadius: 14,
+                        borderTopRightRadius: 14
                     }}
                 />
             </View>
@@ -49,7 +51,8 @@ export function Card(props){
                 <View>
                     <Text style={{
                         fontFamily: FONTS.Bold,
-                        fontSize: 18
+                        fontSize: 18,
+                        color: 'black'
                     }}>Superior Room, Kitchenette, City View</Text>
                 </View>
                 <View>
@@ -196,6 +199,6 @@ export function Card(props){
                     }}>$150</Text>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
