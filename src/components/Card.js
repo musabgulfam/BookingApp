@@ -40,7 +40,7 @@ export function Card({
                 // borderColor: 'green'
             }}>
                 <Image 
-                    source={require('../../../assets/pictures/temp_hotel.png')}
+                    source={require('../../assets/pictures/temp_hotel.png')}
                     style={{
                         height: '100%',
                         width: '100%',
@@ -57,7 +57,8 @@ export function Card({
                 backgroundColor: 'white',
                 borderBottomLeftRadius: 14,
                 borderBottomRightRadius: 14,
-                padding: 12,
+                paddingHorizontal: 12,
+                paddingTop: 12
             }}>
                 <View>
                     <Text style={{
@@ -100,7 +101,7 @@ export function Card({
                         </View>
                         <View>
                             <Image 
-                                source={require('../../../assets/icon/home/location.png')}
+                                source={require('../../assets/icon/home/location.png')}
                                 style={{
                                     width: 10,
                                     height: 16,

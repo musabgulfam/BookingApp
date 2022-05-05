@@ -9,7 +9,9 @@ import {
     Home,
     Loading,
     Info,
-    Select
+    Select,
+    Events,
+    Blogs
 } from "../screens";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import auth from '@react-native-firebase/auth';
@@ -64,22 +66,69 @@ export function Navigation(props) {
                 }}
                 initialRouteName={"Home"}
             >
-                <Tab.Screen 
-                    name="Home" 
-                    component={Home} 
+                <Tab.Screen
+                    name="Home"
+                    component={Home}
                     options={{
-                        tabBarIcon: ({ focused }) => focused ? <Image 
-                            source={require('../../assets/icon/tab/home/globe_sel.png')} 
+                        tabBarIcon: ({ focused }) => focused ? <Image
+                            source={require('../../assets/icon/tab/home/globe_sel.png')}
                             style={{
                                 width: 68,
                                 height: 70,
                                 resizeMode: 'contain'
                             }}
-                        /> : <Image 
-                            source={require('../../assets/icon/tab/home/globe.png')} 
+                        /> : <Image
+                            source={require('../../assets/icon/tab/home/globe.png')}
                             style={{
                                 width: 32,
                                 height: 32,
+                                resizeMode: 'contain'
+                            }}
+                        />,
+                        tabBarShowLabel: false
+                    }}
+                />
+
+                <Tab.Screen
+                    name="Events"
+                    component={Events}
+                    options={{
+                        tabBarIcon: ({ focused }) => focused ? <Image
+                            source={require('../../assets/icon/tab/events/events_sel.png')}
+                            style={{
+                                width: 68,
+                                height: 70,
+                                resizeMode: 'contain'
+                            }}
+                        /> : <Image
+                            source={require('../../assets/icon/tab/events/events.png')}
+                            style={{
+                                width: 32,
+                                height: 32,
+                                resizeMode: 'contain'
+                            }}
+                        />,
+                        tabBarShowLabel: false
+                    }}
+                />
+
+                <Tab.Screen
+                    name="Blogs"
+                    component={Blogs}
+                    options={{
+                        tabBarIcon: ({ focused }) => focused ? <Image
+                            source={require('../../assets/icon/tab/blogs/blogs_sel.png')}
+                            style={{
+                                width: 68,
+                                height: 70,
+                                resizeMode: 'contain'
+                            }}
+                        /> : <Image
+                            source={require('../../assets/icon/tab/blogs/blogs.png')}
+                            style={{
+                                width: 32,
+                                height: 32,
+                                resizeMode: 'contain'
                             }}
                         />,
                         tabBarShowLabel: false

@@ -17,7 +17,7 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 
 const { height } = Dimensions.get('window');
 
-export function Events(props){
+export function Blogs(props){
 
     const { t } = useTranslation();
 
@@ -58,14 +58,7 @@ export function Events(props){
                     fontSize: 23,
                     lineHeight: 30,
                     marginBottom: 11
-                }}>{t("Exclusive events")}</Text>
-            </View>
-            
-            <View style={{
-                paddingHorizontal: 16,
-                marginBottom: 5
-            }}>
-                <SearchBar />
+                }}>{t("Discover and read")}</Text>
             </View>
 
             {!events.length? <ActivityIndicator /> : <ScrollView 
@@ -83,7 +76,7 @@ export function Events(props){
                         fontSize: 22,
                         color: "#36BFFA",
                         marginTop: 20
-                    }}>{t("Events near you")}</Text>
+                    }}>{t("Blogs")}</Text>
                 </View>
 
                 <View style={{

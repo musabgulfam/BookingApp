@@ -36,7 +36,11 @@ const resources = {
       "Checkin date": "تاريخ الوصول",
       "Checkout date": "موعد انتهاء الأقامة",
       "Passengers": "مسافرين",
-      "Reserve": "الاحتياطي"
+      "Reserve": "الاحتياطي",
+      "Exclusive events": "أحداث حصرية ، ذكريات لا تقدر بثمن ...",
+      "Events near you": "أحداث بالقرب منك",
+      "Discover and read": "اكتشف واقرأ القصص التي تهمك",
+      "Blogs": "المدونات"
     }
   }
 };

@@ -7,7 +7,7 @@ import {
     TextInput
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
-import { FONTS } from "../../constants";
+import { FONTS } from "../constants";
 
 export function SearchBar(props){
 
@@ -46,7 +46,7 @@ export function SearchBar(props){
             />
             <View>
                 <Image 
-                    source={require('../../../assets/icon/home/search.png')}
+                    source={require('../../assets/icon/home/search.png')}
                     style={{
                         width: 20.57,
                         height: 20.57,

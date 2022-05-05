@@ -15,6 +15,7 @@ const store = createStore({
     user: null,
     hotels: [],
     resorts: [],
+    events: [],
 
     setUser: action((state, payload) => {
         console.log('Imp payload: ', payload);
@@ -27,6 +28,10 @@ const store = createStore({
 
     setResortAction: action((state, payload) => {
         state.resorts = payload;
+    }),
+
+    setEventsAction: action((state, payload) => {
+        state.events = payload;
     }),
 
     signup: thunk(async (actions, payload) => {
@@ -59,6 +64,12 @@ const store = createStore({
         console.log('Setting resorts...');
         const res = await api.getResorts();
         actions.setResortAction(res.data);
+    }),
+
+    setEvents: thunk(async (actions, payload) => {
+        console.log('Setting events...');
+        const res = await api.getEvents();
+        actions.setEventsAction(res.data);
     })
 
 });

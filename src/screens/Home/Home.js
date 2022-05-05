@@ -58,7 +58,7 @@ export function Home(props){
             }}>
                 <Text style={{
                     color: 'black',
-                    textAlign: 'center',
+                    textAlign: 'left',
                     fontFamily: FONTS.Medium,
                     fontSize: 23,
                     lineHeight: 30,
@@ -102,6 +102,9 @@ export function Home(props){
                     <FlatList 
                         data={hotels}
                         renderItem={({ item }) => <Card navigation={props.navigation} name={item.name} image={item.photo} />}
+                        contentContainerStyle={{
+                            paddingBottom: 30
+                        }}
                     />
                 </View>
 
@@ -113,7 +116,6 @@ export function Home(props){
                         fontFamily: FONTS.Bold,
                         fontSize: 22,
                         color: "#36BFFA",
-                        marginTop: 30
                     }}>{t("Resorts near you")}</Text>
                 </View>
 
@@ -123,6 +125,9 @@ export function Home(props){
                     <FlatList 
                         data={resorts}
                         renderItem={({ item }) => <Card navigation={props.navigation} name={item.name} />}
+                        contentContainerStyle={{
+                            paddingBottom: 30
+                        }}
                     />
                 </View>
             </ScrollView>}
