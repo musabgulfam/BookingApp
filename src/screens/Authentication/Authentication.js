@@ -161,6 +161,9 @@ export function Authentication(props) {
                                                 borderBottomColor: '#0000004D',
                                             }}
                                             placeholderTextColor={"#0000004D"}
+                                            autoCapitalize={'none'}
+                                            autoComplete="none"
+                                            
                                         />
                                     </View>
 
@@ -181,6 +184,7 @@ export function Authentication(props) {
                                                 borderBottomColor: '#0000004D',
                                             }}
                                             placeholderTextColor={"#0000004D"}
+                                            secureTextEntry={true}
                                         />
                                     </View>
 
@@ -201,6 +205,7 @@ export function Authentication(props) {
                                                 borderBottomColor: '#0000004D',
                                             }}
                                             placeholderTextColor={"#0000004D"}
+                                            secureTextEntry={true}
                                         />
                                     </View>
                                 </View>
@@ -306,7 +311,7 @@ export function Authentication(props) {
                                 createUser({
                                     name,
                                     email,
-                                    id: user.uid
+                                    id: user.user.uid
                                 })
                             })
                             .catch(e => {

@@ -6,7 +6,8 @@ export const URIS = {
   createUser: 'api/add-user',
   hotels: 'api/hotels',
   resorts: 'api/resorts',
-  events: 'api/events'
+  events: 'api/events',
+  hotelFilter: 'api/hotel-room-filter'
 };
 
 const createApiClient = (baseURL = BASE_URL) => {
@@ -38,11 +39,16 @@ const createApiClient = (baseURL = BASE_URL) => {
     return api.get(URIS.events);
   }
 
+  const hotelFilter = payload => {
+    return api.post(URIS.hotelFilter, payload)
+  }
+
   return {
     addUser,
     getHotels,
     getResorts,
-    getEvents
+    getEvents,
+    hotelFilter
   };
 };
 

@@ -36,6 +36,8 @@ const dummy_data = [
 
 export function Info(props) {
 
+    const { info } = props.route.params;
+
     const { t } = useTranslation();
 
     return (
@@ -110,7 +112,7 @@ export function Info(props) {
                             fontSize: 30,
                             color: 'black',
                             paddingHorizontal: 15
-                        }}>Hotel Modern View</Text>
+                        }}>{info.name}</Text>
                         <View style={{
                             flexDirection: 'row',
                             alignItems: 'center',
@@ -122,7 +124,7 @@ export function Info(props) {
                                     fontFamily: FONTS.Medium,
                                     fontSize: 15,
                                     color: '#00000080',
-                                }}>Bantul, Yogyakarta, Indonesia</Text>
+                                }}>{info.city.name}</Text>
                             </View>
                             <View>
                                 <Image
@@ -131,7 +133,8 @@ export function Info(props) {
                                         width: 10,
                                         height: 16,
                                         resizeMode: 'contain',
-                                        marginLeft: 6
+                                        marginLeft: 6,
+                                        marginBottom: 5
                                     }}
                                 />
                             </View>
@@ -186,7 +189,7 @@ export function Info(props) {
                             fontSize: 16,
                             color: '#00000080',
                             paddingHorizontal: 15
-                        }}>{t("Detail")}</Text>
+                        }}>{info.details}</Text>
 
                         <View style={{
                             height: 90,
@@ -240,7 +243,9 @@ export function Info(props) {
                                     alignItems: 'center'
                                 }}
                                 onPress={_ => {
-                                    props.navigation.navigate('Select');
+                                    props.navigation.navigate('Select', {
+                                        info
+                                    });
                                 }}
                             >
                                 <Text style={{

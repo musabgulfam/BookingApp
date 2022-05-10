@@ -10,7 +10,8 @@ import { FONTS } from "../constants";
 export function Card({
     navigation,
     name,
-    image
+    image,
+    info
 }){
 
     return(
@@ -31,7 +32,9 @@ export function Card({
                 marginHorizontal: 10
             }}
             onPress={_ => {
-                navigation.navigate('Info');
+                navigation.navigate('Info', {
+                    info
+                })
             }}
         >
             <View style={{

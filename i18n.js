@@ -40,7 +40,9 @@ const resources = {
       "Exclusive events": "أحداث حصرية ، ذكريات لا تقدر بثمن ...",
       "Events near you": "أحداث بالقرب منك",
       "Discover and read": "اكتشف واقرأ القصص التي تهمك",
-      "Blogs": "المدونات"
+      "Blogs": "المدونات",
+      "Proceed": "تقدم",
+      "Pay now": "ادفع الآن"
     }
   }
 };

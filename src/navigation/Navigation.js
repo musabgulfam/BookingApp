@@ -31,6 +31,7 @@ export function Navigation(props) {
         setUser(user);
         if (initializing) setInitializing(false);
         setUserAction(user);
+        console.log('User: ', user);
     }
 
 

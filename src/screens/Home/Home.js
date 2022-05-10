@@ -8,12 +8,14 @@ import {
     Dimensions,
     SafeAreaView,
     FlatList,
-    ActivityIndicator
+    ActivityIndicator,
+    TouchableOpacity
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { FONTS } from "../../constants";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { Card, SearchBar } from "../../components";
+import auth from '@react-native-firebase/auth';
 
 const { height } = Dimensions.get('window');
 
@@ -52,6 +54,12 @@ export function Home(props){
                     marginBottom: 30,
                     marginTop: 10,
                 }}>{t("Welcome")}</Text>
+                {/* <TouchableOpacity onPress={async _ => {
+                    await auth().signOut();
+                    console.log('User logout');
+                }}>
+                    <Text>Logout</Text>
+                </TouchableOpacity> */}
             </SafeAreaView>
             <View style={{
                 paddingHorizontal: 16,
@@ -73,7 +81,7 @@ export function Home(props){
                 <SearchBar />
             </View>
 
-            {!hotels.length || !resorts.length ? <ActivityIndicator /> : <ScrollView 
+            {!hotels.length && !resorts.length ? <ActivityIndicator /> : <ScrollView 
                 style={{
                     paddingTop: 10,
                 }}
@@ -101,7 +109,7 @@ export function Home(props){
                     <Card navigation={props.navigation} /> */}
                     <FlatList 
                         data={hotels}
-                        renderItem={({ item }) => <Card navigation={props.navigation} name={item.name} image={item.photo} />}
+                        renderItem={({ item }) => <Card navigation={props.navigation} name={item.name} image={item.photo} info={item} />}
                         contentContainerStyle={{
                             paddingBottom: 30
                         }}

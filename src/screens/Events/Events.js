@@ -96,7 +96,7 @@ export function Events(props){
                     <Card navigation={props.navigation} /> */}
                     <FlatList 
                         data={events}
-                        renderItem={({ item }) => <Card navigation={props.navigation} name={item.name} image={item.photo} />}
+                        renderItem={({ item }) => <Card navigation={props.navigation} name={item.name} image={item.photo} info={item} />}
                         contentContainerStyle={{
                             paddingBottom: 30
                         }}

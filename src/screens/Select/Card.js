@@ -8,7 +8,11 @@ import {
 import { FONTS } from "../../constants";
 import { useTranslation } from "react-i18next";
 
-export function Card(props){
+export function Card({
+    title,
+    price,
+    onPress
+}){
 
     const { t } = useTranslation();
     
@@ -53,7 +57,7 @@ export function Card(props){
                         fontFamily: FONTS.Bold,
                         fontSize: 18,
                         color: 'black'
-                    }}>Superior Room, Kitchenette, City View</Text>
+                    }}>{title}</Text>
                 </View>
                 <View>
                     <View style={{
@@ -178,14 +182,17 @@ export function Card(props){
                     alignItems: 'center',
                     marginTop: 15
                 }}>
-                    <TouchableOpacity style={{
-                        borderRadius: 8,
-                        backgroundColor: '#36BFFA',
-                        height: 45,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        width: 152
-                    }}>
+                    <TouchableOpacity 
+                        style={{
+                            borderRadius: 8,
+                            backgroundColor: '#36BFFA',
+                            height: 45,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            width: 152
+                        }}
+                        onPress={onPress}
+                    >
                         <Text style={{
                             fontFamily: FONTS.Bold,
                             color: 'white',
@@ -196,7 +203,7 @@ export function Card(props){
                         fontFamily: FONTS.Bold,
                         fontSize: 25,
                         color: '#00000099'
-                    }}>$150</Text>
+                    }}>${price}</Text>
                 </View>
             </View>
         </TouchableOpacity>
